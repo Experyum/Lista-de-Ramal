@@ -1,0 +1,93 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+	<meta charset="utf-8">
+	<title>Cadastrar</title>
+	<link href="estilos_inserir.css" rel="stylesheet">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js">
+	</script>
+</head>
+
+<body>
+	<script type='text/javascript'>
+
+		$(document).ready(function(){
+			$("input[name='cpf']").blur(function(){
+				var $departamento = $("input[name='departamento']");
+				var $colaborador = $("input[name='colaborador']");
+				var $setor = $("input[name='setor']");
+				var $email = $("input[name='email']");
+				$.getJSON('function.php',{ 
+					cpf: $( this ).val() 
+				},function( json ){
+					$departamento.val( json.departamento );
+					$colaborador.val( json.colaborador );
+					$setor.val( json.setor );
+					$email.val( json.email );
+				});
+			});
+		});
+
+		$(document).ready(function(){
+			$('#Botao1').on('click',function(event){
+				event.preventDefault();
+				alert('oi');
+			});
+
+		});
+		function validar_form_contato(){
+				var cpf = formcontato.cpf.value;
+				var email = formcontato.email.value;
+				var ramal = formcontato.ramal.value;
+				var mensagem = formcontato.mensagem.value;
+				
+				if(cpf == ""){
+					alert("Campo cpf é obrigatorio");
+					formcontato.cpf.focus();
+					return false;
+				}if(email == ""){
+					alert("Campo email é obrigatorio");
+					formcontato.email.focus();
+					return false;
+				}if(ramal == ""){
+					alert("Campo ramal é obrigatorio");
+					formcontato.ramal.focus();
+					return false;
+				}
+			}
+		
+	</script>
+	<div class="Painel">
+		<section class="CaixaTexto-Container">
+			<h1>Cadastre-se</h1>
+			<form method="POST" action="validacao_dados.php" name="formcontato">
+				<input type="text" class="CaixaTexto" name="cpf" placeholder = "CPF" ><br><br>
+				<input type="text" class="CaixaTexto" name="ramal" placeholder = "Ramal" ><br><br>	
+				<input type="email" class="CaixaTexto" name="email" placeholder= "E-mail"  id="email">
+				
+					<br>
+
+				<br>
+				<input type="text" class="CaixaTexto" name="departamento" placeholder = "Departamento" readonly="true"><br><br>
+				<input type="text" class="CaixaTexto" name="colaborador" placeholder = "Colaborador" readonly="true"><br><br>
+				<input type="text" class="CaixaTexto" name="setor" placeholder = "Setor"  readonly="true"><br><br>
+				
+			</form>
+			<div class="Botao-Container">
+				<input type="submit" value="Cadastrar" class="Botao1" name="Botao1"  id="Botao1"  onclick="return validar_form_contato()">
+				<a href="Lista_Ramal\index.php" name="voltar"><input type="submit" value="Voltar" class="Botao2"  name="voltar"></a>			
+			</div>
+		</div>
+	</section>
+</div>
+</body>
+</html>
+
+

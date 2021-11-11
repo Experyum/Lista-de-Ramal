@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    background-image: url(imagem_fundo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+}
+
+.CaixaTexto-Container{  
+    background-color:  rgb(234 236 243 / 63%);
+    display: flex;
+    flex-direction: column;
+    align-items: ;
+    margin-right: 35vw;
+    margin-left: 35vw;
+    margin-top: 50px;
+    padding-bottom: 30px;
+    text-align: center;
+    border:  5px;
+
+}
+.CaixaTexto{
+    padding: 8px;
+    width: 85%;
+    margin-left: 5px;
+    position: relative;
+
+
+}
+
+.Botao1{
+    padding: 10px;
+    padding-left: 55px;
+    padding-right: 55px;
+    position: absolute;
+    right: 36.2vw;
+ 
+}
+.Botao2{
+    padding: 10px;
+    padding-left: 65px;
+     padding-right: 65px;
+     margin-right: 14vw;
+
+  
+}
+.Botao-Container{
+    display: flex;
+    justify-content: center;
+}
+.painel{
+    background-color:red;
+
+}
+
+
